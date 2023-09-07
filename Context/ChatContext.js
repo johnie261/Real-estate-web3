@@ -109,7 +109,7 @@ export const ChatAppProvider = ({children}) => {
     const readUser = async (userAddress) => {
         const contract = await ConnectingWithContract();
         const userName = await contract.getUsername(userAddress);
-        setUserName(userName)
+        setCurrentUserName(userName)
         setCurrentUserAddress(userAddress)
     };
 
@@ -120,7 +120,18 @@ export const ChatAppProvider = ({children}) => {
                 createAccount,
                 addFriends,
                 sendMessage,
-                readUser
+                readUser,
+                ConnectWallet,
+                CheckIfWalletIsConnected,
+                isLoading,
+                currentUserAddress,
+                account,
+                userLists,
+                userName,
+                friendLists,
+                friendMsg,
+                currentUserName,
+                error
             }}
         >
             {children}
