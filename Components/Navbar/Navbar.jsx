@@ -12,7 +12,7 @@ const Navbar = () => {
   const [active, setActive] = useState(2)
   const [open, setOpen] = useState(false)
   const [openModal, setOpenModal] = useState(false)
-  const { account, userName, connectWallet  } = useContext(ChatAppContext)
+  const { account, userName, connectWallet, createAccount, error  } = useContext(ChatAppContext)
 
   const menuItems = [
     {
@@ -113,8 +113,24 @@ const Navbar = () => {
           </div>
         </div>
       </div>
+
+      {openModal && (
+        <div className={Style.modelBox}>
+          <Model 
+            openBox={setOpenModal} 
+            title="WELCOME TO"
+            head= "CHAT BUDDY"
+            info="lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem"
+            smallInfo="Kindly select your name"
+            images={images.hero}
+            functionName={createAccount}
+            address={account}
+          />
+        </div>
+      )}
+      {error == "" ? "" : <Error error={error} />}
     </div>
   )
-}
+} 
 
 export default Navbar
