@@ -20,7 +20,7 @@ const Model = ({openBox, title, head, info, smallInfo, images, address, function
         </div>
         <div className={Style.Model_box_right}>
           <h1>
-            {title} <spam>{head}</spam>
+            {title} <span>{head}</span>
           </h1>
           <p>{info}</p>
           <small>{smallInfo}</small>
